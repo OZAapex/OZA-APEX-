@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OZA APEX | Private Equity</title>
+  <link rel="icon" type="image/png" href="Gemini_Generated_Image_s79283s79283s792.png">
 
   <style>
     :root{
@@ -33,7 +34,6 @@
     a{color:inherit; text-decoration:none}
     .container{width:min(1160px, 92vw); margin:0 auto}
 
-    /* NAV */
     .nav{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
@@ -50,10 +50,13 @@
       min-width: 220px;
     }
     .brand img{
-      width:42px; height:42px; object-fit:cover;
-      border-radius:10px;
+      width:56px;
+      height:56px;
+      object-fit:contain;
+      border-radius:12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.10);
+      background: transparent;
     }
     .brand-title{
       display:flex; flex-direction:column; line-height:1.15;
@@ -144,7 +147,6 @@
       border-radius:2px;
     }
 
-    /* HERO */
     .hero{
       padding:66px 0 40px;
       position:relative;
@@ -219,18 +221,7 @@
       z-index:0;
     }
     .hero-card > *{position:relative; z-index:1}
-    .logo-big{
-      display:flex; justify-content:center; align-items:center;
-      padding: 8px 0 14px;
-    }
-    .logo-big img{
-      width: min(420px, 88%);
-      height:auto;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.45);
-      background: rgba(0,0,0,0.1);
-    }
+
     .quick-stats{
       display:grid; grid-template-columns: repeat(3, 1fr);
       gap:10px;
@@ -255,7 +246,6 @@
       line-height:1.3;
     }
 
-    /* SECTIONS */
     .section{
       padding: 72px 0;
     }
@@ -333,7 +323,6 @@
       margin-bottom: 10px;
     }
 
-    /* Process */
     .steps{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -363,7 +352,6 @@
     }
     .step p{font-size: 13px}
 
-    /* Contact */
     .contact-wrap{
       display:grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -394,7 +382,6 @@
     .contact-item small{color: var(--muted)}
     .contact-item b{display:block; margin-top:6px}
 
-    /* Footer */
     footer{
       padding: 26px 0 40px;
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -417,7 +404,6 @@
     }
     .signature span{color: var(--gold);}
 
-    /* Reveal */
     .reveal{
       opacity:0;
       transform: translateY(22px);
@@ -428,7 +414,6 @@
       transform: translateY(0);
     }
 
-    /* Mobile */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns: 1fr; gap:16px}
       .grid-3{grid-template-columns: 1fr}
@@ -448,7 +433,6 @@
       .quick-stats{grid-template-columns: 1fr; }
     }
 
-    /* Mobile drawer */
     .drawer{
       display:none;
       position: fixed;
@@ -485,7 +469,6 @@
 
 <body>
 
-  <!-- NAV -->
   <header class="nav">
     <div class="container">
       <div class="nav-inner">
@@ -522,7 +505,6 @@
     </div>
   </header>
 
-  <!-- MOBILE DRAWER -->
   <div class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-panel container">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
@@ -539,7 +521,6 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <main id="top" class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -570,10 +551,6 @@
         </div>
 
         <aside class="hero-card reveal">
-          <div class="logo-big">
-              <img src="Gemini_Generated_Image_s79283s79283s792.png" alt="OZA APEX">
-          </div>
-
           <div class="quick-stats">
             <div class="stat">
               <b>B2B</b>
@@ -594,7 +571,6 @@
     </div>
   </main>
 
-  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -626,7 +602,6 @@
     </div>
   </section>
 
-  <!-- STRATEGY -->
   <section id="strategy" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -653,7 +628,6 @@
     </div>
   </section>
 
-  <!-- CRITERIA -->
   <section id="criteria" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -684,7 +658,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section id="process" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -714,7 +687,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -756,7 +728,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -776,10 +747,8 @@
   </footer>
 
   <script>
-    // ====== Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ====== Reveal on scroll
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
@@ -791,7 +760,6 @@
     }, {threshold: 0.12});
     els.forEach(el=>io.observe(el));
 
-    // ====== Mobile drawer
     const drawer = document.getElementById('drawer');
     const menuBtn = document.getElementById('menuBtn');
     const closeDrawer = document.getElementById('closeDrawer');
@@ -811,7 +779,6 @@
     drawer?.addEventListener('click', (e)=>{ if(e.target === drawer) closeIt(); });
     drawerLinks.forEach(a=>a.addEventListener('click', closeIt));
 
-    // ====== i18n
     const i18n = {
       ar: {
         brand:{tagline:"Private Equity • Value Creation"},
@@ -882,7 +849,6 @@
           signature:"עאסלה עודאי | מייסד ומנכ״ל OZA APEX"
         }
       },
-
       he: {
         brand:{tagline:"Private Equity • Value Creation"},
         drawer:{close:"סגור"},
@@ -952,7 +918,6 @@
           signature:"עאסלה עודאי | מייסד ומנכ״ל OZA APEX"
         }
       },
-
       en: {
         brand:{tagline:"Private Equity • Value Creation"},
         drawer:{close:"Close"},
@@ -1040,38 +1005,31 @@
       currentLang = lang;
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
-
-      // Save language
       localStorage.setItem('oza_lang', lang);
       updateActiveLangButtons(lang);
 
-      // Text content
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const key = el.getAttribute('data-i18n');
         const val = get(i18n[lang], key);
         if(val !== undefined) el.textContent = val;
       });
 
-      // HTML content
       document.querySelectorAll('[data-i18n-html]').forEach(el=>{
         const key = el.getAttribute('data-i18n-html');
         const val = get(i18n[lang], key);
         if(val !== undefined) el.innerHTML = val;
       });
 
-      // Placeholders
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
         const key = el.getAttribute('data-i18n-placeholder');
         const val = get(i18n[lang], key);
         if(val !== undefined) el.setAttribute('placeholder', val);
       });
 
-      // Keep footer year span correct after innerHTML changes
       const yearEl = document.getElementById('year');
       if(yearEl) yearEl.textContent = new Date().getFullYear();
     }
 
-    // Load saved language
     setLang(localStorage.getItem('oza_lang') || 'ar');
   </script>
 </body>
