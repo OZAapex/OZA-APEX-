@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OZA APEX | Private Equity</title>
+
+  <style>
+    :root{
+      --navy:#081a33;
+      --navy2:#0b2446;
+      --navy3:#0f2d59;
+      --gold:#d4af37;
+      --gold2:#b8912e;
+      --text:#e9eef7;
+      --muted:#b9c3d6;
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Arabic", "Noto Sans Hebrew", sans-serif;
+      background:
+        radial-gradient(1000px 700px at 80% -10%, rgba(212,175,55,0.12), transparent 60%),
+        radial-gradient(900px 650px at 10% 10%, rgba(17,43,85,0.65), transparent 55%),
+        linear-gradient(180deg, var(--navy) 0%, #061428 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1160px, 92vw); margin:0 auto}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(6, 18, 38, 0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .brand img{
+      width:42px; height:42px; object-fit:cover;
+      border-radius:10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.15;
+    }
+    .brand-title b{
+      letter-spacing:0.6px;
+      font-weight:750;
+    }
+    .brand-title small{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:0.2px;
+    }
+
+    .menu{
+      display:flex; align-items:center; gap:26px;
+    }
+    .menu a{
+      position:relative;
+      font-size:14px;
+      color:var(--text);
+      opacity:0.92;
+      padding:10px 2px;
+    }
+    .menu a::after{
+      content:"";
+      position:absolute;
+      right:0; bottom:4px;
+      width:0; height:2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transition: width .35s ease;
+    }
+    .menu a:hover{opacity:1}
+    .menu a:hover::after{width:100%}
+
+    .nav-cta{
+      display:flex; align-items:center; gap:10px;
+    }
+    .btn{
+      border:none;
+      border-radius:14px;
+      padding:12px 16px;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--gold) 0%, #f4db84 45%, var(--gold2) 100%);
+      color:#0a1730;
+      box-shadow: 0 16px 36px rgba(212,175,55,0.25);
+    }
+    .btn-primary:hover{transform: translateY(-1px); box-shadow: 0 22px 46px rgba(212,175,55,0.30)}
+    .btn-ghost{
+      background: rgba(255,255,255,0.06);
+      color:var(--text);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .btn-ghost:hover{opacity:1; transform: translateY(-1px)}
+
+    .lang{
+      display:flex; gap:8px; align-items:center;
+    }
+    .lang .btn{
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:800;
+    }
+    .lang .btn.active{
+      border-color: rgba(212,175,55,0.55);
+      box-shadow: 0 10px 26px rgba(212,175,55,0.12);
+    }
+
+    .hamburger{
+      display:none;
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.06);
+      cursor:pointer;
+    }
+    .hamburger span{
+      display:block; width:18px; height:2px; background: rgba(233,238,247,0.9);
+      margin:4px auto;
+      border-radius:2px;
+    }
+
+    /* HERO */
+    .hero{
+      padding:66px 0 40px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:28px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-size:13px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(212,175,55,0.12);
+    }
+    h1{
+      margin:18px 0 10px;
+      font-size: clamp(34px, 4vw, 54px);
+      letter-spacing:0.4px;
+      line-height:1.05;
+    }
+    h1 .gold{
+      background: linear-gradient(135deg, var(--gold) 0%, #f3d77b 40%, var(--gold2) 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      margin:12px 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.75;
+      max-width: 52ch;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .hero-note{
+      margin-top:14px;
+      color: rgba(233,238,247,0.75);
+      font-size: 13px;
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 320px at 20% 10%, rgba(212,175,55,0.16), transparent 60%),
+        radial-gradient(500px 260px at 80% 30%, rgba(17,43,85,0.70), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    .logo-big{
+      display:flex; justify-content:center; align-items:center;
+      padding: 8px 0 14px;
+    }
+    .logo-big img{
+      width: min(420px, 88%);
+      height:auto;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.1);
+    }
+    .quick-stats{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .stat{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 14px 12px;
+      text-align:center;
+    }
+    .stat b{
+      display:block;
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom:6px;
+    }
+    .stat small{
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.3;
+    }
+
+    /* SECTIONS */
+    .section{
+      padding: 72px 0;
+    }
+    .section-head{
+      display:flex; flex-direction:column; gap:10px;
+      margin-bottom: 26px;
+    }
+    .eyebrow{
+      color: rgba(212,175,55,0.95);
+      letter-spacing:1px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .section h2{
+      margin:0;
+      font-size: 30px;
+      letter-spacing:0.2px;
+    }
+    .section p{
+      margin:0;
+      color: var(--muted);
+      line-height:1.85;
+      max-width: 80ch;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top:22px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:22px;
+      align-items:stretch;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 36px rgba(0,0,0,0.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(420px 200px at 80% 0%, rgba(212,175,55,0.10), transparent 60%);
+      pointer-events:none;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.75;
+    }
+    .pill{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,0.25);
+      background: rgba(212,175,55,0.08);
+      color: rgba(233,238,247,0.9);
+      font-size: 12px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    /* Process */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .step{
+      border-radius: 22px;
+      padding: 18px 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      min-height: 140px;
+    }
+    .step b{
+      display:flex; gap:10px; align-items:center;
+      margin-bottom:10px;
+      font-size: 14px;
+    }
+    .step .num{
+      width:26px; height:26px; border-radius:10px;
+      background: rgba(212,175,55,0.14);
+      border: 1px solid rgba(212,175,55,0.25);
+      display:inline-flex; align-items:center; justify-content:center;
+      color: var(--gold);
+      font-weight:800;
+      font-size: 12px;
+    }
+    .step p{font-size: 13px}
+
+    /* Contact */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:16px;
+      margin-top:22px;
+    }
+    .form{display:grid; gap:12px;}
+    .input{
+      width:100%;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    .input::placeholder{color: rgba(185,195,214,0.8)}
+    textarea.input{min-height:120px; resize:vertical}
+
+    .contact-box{display:grid; gap:12px;}
+    .contact-item{
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+    }
+    .contact-item small{color: var(--muted)}
+    .contact-item b{display:block; margin-top:6px}
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(6,18,38,0.35);
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:18px; flex-wrap:wrap;
+    }
+    .fineprint{
+      color: rgba(185,195,214,0.75);
+      font-size: 12px;
+      line-height:1.7;
+      max-width: 70ch;
+    }
+    .signature{
+      color: rgba(233,238,247,0.92);
+      font-weight: 800;
+      letter-spacing:0.2px;
+    }
+    .signature span{color: var(--gold);}
+
+    /* Reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(22px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; gap:16px}
+      .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr 1fr}
+      .contact-wrap{grid-template-columns: 1fr}
+      .brand{min-width:auto}
+      .menu{display:none}
+      .hamburger{display:inline-block}
+    }
+    @media (max-width: 520px){
+      .steps{grid-template-columns: 1fr}
+      .nav-inner{padding:12px 0}
+      .brand-title small{display:none}
+      .hero{padding:44px 0 26px}
+      .hero-card{padding:18px}
+      .quick-stats{grid-template-columns: 1fr; }
+    }
+
+    /* Mobile drawer */
+    .drawer{
+      display:none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 60;
+    }
+    .drawer.open{display:block}
+    .drawer-panel{
+      position:absolute;
+      top: 10px; right: 10px; left: 10px;
+      border-radius: 22px;
+      background: rgba(6,18,38,0.92);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 14px;
+      backdrop-filter: blur(10px);
+    }
+    .drawer-links{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .drawer-links a{
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <img src="c:\Users\UPDATE\Downloads\Gemini_Generated_Image_s79283s79283s792.png" alt="OZA APEX Logo" />
+          <div class="brand-title">
+            <b>OZA APEX</b>
+            <small data-i18n="brand.tagline">Private Equity • Value Creation</small>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Primary Navigation">
+          <a href="#about" data-i18n="nav.about">عنّا</a>
+          <a href="#strategy" data-i18n="nav.strategy">الاستراتيجية</a>
+          <a href="#criteria" data-i18n="nav.criteria">معايير الاستثمار</a>
+          <a href="#process" data-i18n="nav.process">كيف نشتغل</a>
+          <a href="#contact" data-i18n="nav.contact">تواصل</a>
+        </nav>
+
+        <div class="nav-cta">
+          <button class="btn btn-ghost hamburger" id="menuBtn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="lang" aria-label="Language switch">
+            <button class="btn btn-ghost" type="button" data-lang="ar" onclick="setLang('ar')">AR</button>
+            <button class="btn btn-ghost" type="button" data-lang="he" onclick="setLang('he')">HE</button>
+            <button class="btn btn-ghost" type="button" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+
+          <a class="btn btn-primary" href="#contact" data-i18n="nav.cta">تواصل الآن</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel container">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div class="signature">OZA <span>APEX</span></div>
+        <button class="btn btn-ghost" id="closeDrawer" data-i18n="drawer.close">إغلاق</button>
+      </div>
+      <div class="drawer-links">
+        <a href="#about" class="drawerLink" data-i18n="nav.about">عنّا</a>
+        <a href="#strategy" class="drawerLink" data-i18n="nav.strategy">الاستراتيجية</a>
+        <a href="#criteria" class="drawerLink" data-i18n="nav.criteria">معايير الاستثمار</a>
+        <a href="#process" class="drawerLink" data-i18n="nav.process">كيف نشتغل</a>
+        <a href="#contact" class="drawerLink" data-i18n="nav.contact">تواصل</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="reveal">
+          <div class="badge">
+            <span class="dot"></span>
+            <span data-i18n="hero.badge">حضور قوي • تنفيذ منضبط • قرارات مبنية على بيانات</span>
+          </div>
+
+          <h1 data-i18n-html="hero.title">
+            نبني قيمة حقيقية عبر <span class="gold">الاستحواذ والتحسين</span>
+          </h1>
+
+          <p class="lead" data-i18n="hero.lead">
+            OZA APEX شركة Private Equity تركّز على شركات B2B التشغيلية.
+            نبحث عن فرص واقعية، نحسّن الأداء التشغيلي، ونخلق نموًا طويل الأمد — بهدوء وبدقة.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" data-i18n="hero.primary">احجز مكالمة قصيرة</a>
+            <a class="btn btn-ghost" href="#criteria" data-i18n="hero.secondary">شوف معاييرنا</a>
+          </div>
+
+          <div class="hero-note" data-i18n="hero.note">
+            * نعمل وفق مبدأ واحد: ننجح عندما ينجح شركاؤنا أولًا.
+          </div>
+        </div>
+
+        <aside class="hero-card reveal">
+          <div class="logo-big">
+            <img src="c:\Users\UPDATE\Downloads\Gemini_Generated_Image_s79283s79283s792.png" alt="OZA APEX Official Logo"/>
+          </div>
+
+          <div class="quick-stats">
+            <div class="stat">
+              <b>B2B</b>
+              <small data-i18n="stats.s1">تركيز على شركات تشغيلية</small>
+            </div>
+            <div class="stat">
+              <b>3–5</b>
+              <small data-i18n="stats.s2">سنوات أفق الاستثمار</small>
+            </div>
+            <div class="stat">
+              <b>Value</b>
+              <small data-i18n="stats.s3">تحسين EBITDA والإدارة</small>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="about.eyebrow">About</div>
+        <h2 data-i18n="about.title">من نحن</h2>
+        <p data-i18n="about.text">
+          نحن نؤمن أن الاستثمار الحقيقي ليس ضجيجًا — بل انضباط وتنفيذ.
+          هدفنا هو بناء قيمة عبر إدارة فعّالة، تحسين عمليات، وتطوير النمو بطريقة عملية.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="pill" data-i18n="about.pill1">عقلية صندوق</div>
+          <h3 data-i18n="about.c1t">قرارات محسوبة</h3>
+          <p data-i18n="about.c1p">تركيز على الأساسيات: تدفق نقدي، هامش ربح، جودة العملاء، وإمكانية التحسين.</p>
+        </div>
+        <div class="card reveal">
+          <div class="pill" data-i18n="about.pill2">تشغيل قبل الكلام</div>
+          <h3 data-i18n="about.c2t">تحسين عملي</h3>
+          <p data-i18n="about.c2p">نرفع الأداء من داخل الشركة: عمليات، تسعير، مبيعات، وإدارة مصاريف.</p>
+        </div>
+        <div class="card reveal">
+          <div class="pill" data-i18n="about.pill3">شراكة طويلة</div>
+          <h3 data-i18n="about.c3t">ثقة وهيبة</h3>
+          <p data-i18n="about.c3p">وجودنا مبني على الشفافية والجدية — ومصلحة الشريك قبل أي شيء.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
+  <section id="strategy" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="strategy.eyebrow">Strategy</div>
+        <h2 data-i18n="strategy.title">استراتيجيتنا</h2>
+        <p data-i18n="strategy.text">
+          نركز على شركات B2B القائمة ذات الربحية الموجودة، لكن بحاجة لإدارة أقوى وتحسين تشغيلي.
+          نجاحنا يأتي من التنفيذ اليومي، وليس من الوعود.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card reveal">
+          <div class="pill">Acquisition</div>
+          <h3 data-i18n="strategy.c1t">استحواذ ذكي</h3>
+          <p data-i18n="strategy.c1p">نبحث عن شركات فيها قاعدة عملاء قوية، ونقاط ضعف تشغيلية يمكن إصلاحها بسرعة.</p>
+        </div>
+        <div class="card reveal">
+          <div class="pill">Value Creation</div>
+          <h3 data-i18n="strategy.c2t">خلق قيمة</h3>
+          <p data-i18n="strategy.c2p">تحسين EBITDA عبر: ضبط مصاريف، تحسين تسعير، عقود أطول، ونظام إدارة أقوى.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRITERIA -->
+  <section id="criteria" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="criteria.eyebrow">Criteria</div>
+        <h2 data-i18n="criteria.title">معايير الاستثمار</h2>
+        <p data-i18n="criteria.text">
+          هذه المعايير تساعدنا نميّز الفرصة “الحقيقية” عن الفرصة “الحلوة على الورق”.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="pill" data-i18n="criteria.p1">القطاع</div>
+          <h3 data-i18n="criteria.c1t">B2B تشغيلية</h3>
+          <p data-i18n="criteria.c1p">خدمات صناعية، صيانة، توزيع، لوجستيك، Outsourcing… أشياء ثابتة ومطلوبة.</p>
+        </div>
+        <div class="card reveal">
+          <div class="pill" data-i18n="criteria.p2">الأرقام</div>
+          <h3 data-i18n="criteria.c2t">ربحية واضحة</h3>
+          <p data-i18n="criteria.c2p">EBITDA موجود، تدفق نقدي مفهوم، وإمكانية رفع الهامش عبر تحسينات محددة.</p>
+        </div>
+        <div class="card reveal">
+          <div class="pill" data-i18n="criteria.p3">التحسين</div>
+          <h3 data-i18n="criteria.c3t">رافعة نمو</h3>
+          <p data-i18n="criteria.c3p">فوضى إدارية/تشغيلية قابلة للترتيب: تسعير، عمليات، فريق، أو نظام متابعة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="process.eyebrow">Process</div>
+        <h2 data-i18n="process.title">كيف نشتغل</h2>
+        <p data-i18n="process.text">مسار بسيط وواضح — هذا اللي يعطي ثقة ويقلل أخطاء.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <b><span class="num">1</span> <span data-i18n="process.s1t">فحص أولي</span></b>
+          <p data-i18n="process.s1p">فهم القطاع، أرقام أساسية، وسبب البيع أو الحاجة لشريك.</p>
+        </div>
+        <div class="step reveal">
+          <b><span class="num">2</span> <span data-i18n="process.s2t">تحليل عميق</span></b>
+          <p data-i18n="process.s2p">EBITDA، جودة العملاء، مصاريف، عمليات، ومخاطر واضحة.</p>
+        </div>
+        <div class="step reveal">
+          <b><span class="num">3</span> <span data-i18n="process.s3t">خطة تحسين</span></b>
+          <p data-i18n="process.s3p">خطة 90–180 يوم: إجراءات قصيرة + مسار نمو طويل.</p>
+        </div>
+        <div class="step reveal">
+          <b><span class="num">4</span> <span data-i18n="process.s4t">تنفيذ وخروج</span></b>
+          <p data-i18n="process.s4p">تنفيذ منضبط ثم إعداد مسار خروج: بيع استراتيجي/صندوق أكبر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+        <h2 data-i18n="contact.title">تواصل معنا</h2>
+        <p data-i18n="contact.text">
+          إذا عندك شركة تشغيلية للبيع أو شراكة استثمار — ابعث التفاصيل، ونرد عليك بشكل محترف وسريع.
+        </p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="card reveal">
+          <div class="pill">Message</div>
+          <form class="form" onsubmit="event.preventDefault(); alert(i18n[currentLang].form.alert);">
+            <input class="input" type="text" placeholder="الاسم الكامل" data-i18n-placeholder="form.name" required />
+            <input class="input" type="email" placeholder="الإيميل" data-i18n-placeholder="form.email" required />
+            <input class="input" type="text" placeholder="موضوع الرسالة (صفقة / شراكة / استفسار)" data-i18n-placeholder="form.subject" />
+            <textarea class="input" placeholder="اكتب التفاصيل هنا..." data-i18n-placeholder="form.message" required></textarea>
+            <button class="btn btn-primary" type="submit" data-i18n="form.send">إرسال</button>
+          </form>
+        </div>
+
+        <div class="contact-box reveal">
+          <div class="contact-item">
+            <small data-i18n="contact.emailLabel">البريد</small>
+            <b>odaiozaapex@outlook.com</b>
+          </div>
+          <div class="contact-item">
+            <small data-i18n="contact.identityLabel">الهوية</small>
+            <b>OZA APEX • Private Equity</b>
+          </div>
+          <div class="contact-item">
+            <small data-i18n="contact.noteLabel">ملاحظة</small>
+            <b data-i18n="contact.noteText">نتعامل مع فرص B2B التشغيلية فقط.</b>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="signature">OZA <span>APEX</span></div>
+          <div class="fineprint" data-i18n-html="footer.fineprint">
+            עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>
+            © <span id="year"></span> OZA APEX. All rights reserved.
+          </div>
+        </div>
+
+        <div class="fineprint" style="text-align:left" data-i18n="footer.signature">
+          עאסלה עודאי | מייסד ומנכ״ל OZA APEX
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ====== Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== Reveal on scroll
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      })
+    }, {threshold: 0.12});
+    els.forEach(el=>io.observe(el));
+
+    // ====== Mobile drawer
+    const drawer = document.getElementById('drawer');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const drawerLinks = document.querySelectorAll('.drawerLink');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden','false');
+    }
+    function closeIt(){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+    }
+
+    menuBtn?.addEventListener('click', openDrawer);
+    closeDrawer?.addEventListener('click', closeIt);
+    drawer?.addEventListener('click', (e)=>{ if(e.target === drawer) closeIt(); });
+    drawerLinks.forEach(a=>a.addEventListener('click', closeIt));
+
+    // ====== i18n
+    const i18n = {
+      ar: {
+        brand:{tagline:"Private Equity • Value Creation"},
+        drawer:{close:"إغلاق"},
+        nav:{about:"عنّا", strategy:"الاستراتيجية", criteria:"معايير الاستثمار", process:"كيف نشتغل", contact:"تواصل", cta:"تواصل الآن"},
+        hero:{
+          badge:"حضور قوي • تنفيذ منضبط • قرارات مبنية على بيانات",
+          title:`نبني قيمة حقيقية عبر <span class="gold">الاستحواذ والتحسين</span>`,
+          lead:"OZA APEX شركة Private Equity تركّز على شركات B2B التشغيلية. نبحث عن فرص واقعية، نحسّن الأداء التشغيلي، ونخلق نموًا طويل الأمد — بهدوء وبدقة.",
+          primary:"احجز مكالمة قصيرة",
+          secondary:"شوف معاييرنا",
+          note:"* نعمل وفق مبدأ واحد: ننجح عندما ينجح شركاؤنا أولًا."
+        },
+        stats:{s1:"تركيز على شركات تشغيلية", s2:"سنوات أفق الاستثمار", s3:"تحسين EBITDA والإدارة"},
+        about:{
+          eyebrow:"About",
+          title:"من نحن",
+          text:"نحن نؤمن أن الاستثمار الحقيقي ليس ضجيجًا — بل انضباط وتنفيذ. هدفنا هو بناء قيمة عبر إدارة فعّالة، تحسين عمليات، وتطوير النمو بطريقة عملية.",
+          pill1:"عقلية صندوق", pill2:"تشغيل قبل الكلام", pill3:"شراكة طويلة",
+          c1t:"قرارات محسوبة", c1p:"تركيز على الأساسيات: تدفق نقدي، هامش ربح، جودة العملاء، وإمكانية التحسين.",
+          c2t:"تحسين عملي", c2p:"نرفع الأداء من داخل الشركة: عمليات، تسعير، مبيعات، وإدارة مصاريف.",
+          c3t:"ثقة وهيبة", c3p:"وجودنا مبني على الشفافية والجدية — ومصلحة الشريك قبل أي شيء."
+        },
+        strategy:{
+          eyebrow:"Strategy",
+          title:"استراتيجيتنا",
+          text:"نركز على شركات B2B القائمة ذات الربحية الموجودة، لكن بحاجة لإدارة أقوى وتحسين تشغيلي. نجاحنا يأتي من التنفيذ اليومي، وليس من الوعود.",
+          c1t:"استحواذ ذكي", c1p:"نبحث عن شركات فيها قاعدة عملاء قوية، ونقاط ضعف تشغيلية يمكن إصلاحها بسرعة.",
+          c2t:"خلق قيمة", c2p:"تحسين EBITDA عبر: ضبط مصاريف، تحسين تسعير، عقود أطول، ونظام إدارة أقوى."
+        },
+        criteria:{
+          eyebrow:"Criteria",
+          title:"معايير الاستثمار",
+          text:"هذه المعايير تساعدنا نميّز الفرصة “الحقيقية” عن الفرصة “الحلوة على الورق”.",
+          p1:"القطاع", p2:"الأرقام", p3:"التحسين",
+          c1t:"B2B تشغيلية", c1p:"خدمات صناعية، صيانة، توزيع، لوجستيك، Outsourcing… أشياء ثابتة ومطلوبة.",
+          c2t:"ربحية واضحة", c2p:"EBITDA موجود، تدفق نقدي مفهوم، وإمكانية رفع الهامش عبر تحسينات محددة.",
+          c3t:"رافعة نمو", c3p:"فوضى إدارية/تشغيلية قابلة للترتيب: تسعير، عمليات، فريق، أو نظام متابعة."
+        },
+        process:{
+          eyebrow:"Process",
+          title:"كيف نشتغل",
+          text:"مسار بسيط وواضح — هذا اللي يعطي ثقة ويقلل أخطاء.",
+          s1t:"فحص أولي", s1p:"فهم القطاع، أرقام أساسية، وسبب البيع أو الحاجة لشريك.",
+          s2t:"تحليل عميق", s2p:"EBITDA، جودة العملاء، مصاريف، عمليات، ومخاطر واضحة.",
+          s3t:"خطة تحسين", s3p:"خطة 90–180 يوم: إجراءات قصيرة + مسار نمو طويل.",
+          s4t:"تنفيذ وخروج", s4p:"تنفيذ منضبط ثم إعداد مسار خروج: بيع استراتيجي/صندوق أكبر."
+        },
+        contact:{
+          eyebrow:"Contact",
+          title:"تواصل معنا",
+          text:"إذا عندك شركة تشغيلية للبيع أو شراكة استثمار — ابعث التفاصيل، ونرد عليك بشكل محترف وسريع.",
+          emailLabel:"البريد",
+          identityLabel:"الهوية",
+          noteLabel:"ملاحظة",
+          noteText:"تتغير الشركات التي نستهدفها للاستثمار تبعاً لظروف السوق."
+        },
+        form:{
+          name:"الاسم الكامل",
+          email:"الإيميل",
+          subject:"موضوع الرسالة (صفقة / شراكة / استفسار)",
+          message:"اكتب التفاصيل هنا...",
+          send:"إرسال",
+          alert:"تم استلام رسالتك ✅"
+        },
+        footer:{
+          fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
+          signature:"עאסלה עודאי | מייסד ומנכ״ל OZA APEX"
+        }
+      },
+
+      he: {
+        brand:{tagline:"Private Equity • Value Creation"},
+        drawer:{close:"סגור"},
+        nav:{about:"אודות", strategy:"אסטרטגיה", criteria:"קריטריונים", process:"איך עובדים", contact:"צור קשר", cta:"צור קשר עכשיו"},
+        hero:{
+          badge:"נוכחות חזקה • ביצוע ממושמע • החלטות מבוססות נתונים",
+          title:`בונים ערך אמיתי דרך <span class="gold">רכישה והשבחה</span>`,
+          lead:"OZA APEX היא חברת Private Equity המתמקדת בחברות B2B תפעוליות. אנחנו מאתרים הזדמנויות אמיתיות, משפרים ביצועים ומייצרים צמיחה לטווח ארוך — בשקט ובדיוק.",
+          primary:"קבע שיחה קצרה",
+          secondary:"צפה בקריטריונים",
+          note:"* עיקרון אחד: אנחנו מצליחים כששותפינו מצליחים קודם."
+        },
+        stats:{s1:"מיקוד בחברות תפעוליות", s2:"אופק השקעה בשנים", s3:"שיפור EBITDA וניהול"},
+        about:{
+          eyebrow:"About",
+          title:"אודותינו",
+          text:"השקעה אמיתית אינה רעש — היא משמעת וביצוע. המטרה שלנו: ליצור ערך באמצעות ניהול, שיפור תהליכים וצמיחה מעשית.",
+          pill1:"מיינדסט של קרן", pill2:"תפעול לפני דיבורים", pill3:"שותפות לטווח ארוך",
+          c1t:"החלטות מדויקות", c1p:"התמקדות ביסודות: תזרים, רווחיות, איכות לקוחות ומנופי השבחה.",
+          c2t:"השבחה תפעולית", c2p:"שיפור מבפנים: תהליכים, תמחור, מכירות וניהול הוצאות.",
+          c3t:"אמון ונוכחות", c3p:"בנוי על שקיפות ורצינות — והאינטרס של השותף לפני הכל."
+        },
+        strategy:{
+          eyebrow:"Strategy",
+          title:"האסטרטגיה שלנו",
+          text:"אנחנו מתמקדים בחברות B2B רווחיות עם צורך בניהול חזק יותר ושיפור תפעולי. ההצלחה מגיעה מביצוע יומיומי — לא מהבטחות.",
+          c1t:"רכישה חכמה", c1p:"מאותרים עסקים עם בסיס לקוחות חזק וחולשות תפעוליות שניתן לתקן מהר.",
+          c2t:"יצירת ערך", c2p:"שיפור EBITDA דרך: שליטה בהוצאות, תמחור, חוזים ארוכים ומערכת ניהול חזקה."
+        },
+        criteria:{
+          eyebrow:"Criteria",
+          title:"קריטריוני השקעה",
+          text:"הקריטריונים עוזרים לנו להבדיל בין הזדמנות אמיתית לבין מצגת יפה.",
+          p1:"תחום", p2:"מספרים", p3:"השבחה",
+          c1t:"B2B תפעולי", c1p:"שירותים תעשייתיים, תחזוקה, הפצה, לוגיסטיקה, מיקור חוץ — דברים יציבים וביקוש קבוע.",
+          c2t:"רווחיות ברורה", c2p:"EBITDA קיים, תזרים מובן, ופוטנציאל להרחבת מרווחים דרך שיפורים מוגדרים.",
+          c3t:"מנוף צמיחה", c3p:"בלגן ניהולי/תפעולי שניתן לסדר: תמחור, תהליכים, צוות או מערכת בקרה."
+        },
+        process:{
+          eyebrow:"Process",
+          title:"איך אנחנו עובדים",
+          text:"מסלול פשוט וברור — בונה אמון ומפחית טעויות.",
+          s1t:"בדיקה ראשונית", s1p:"הבנת התחום, מספרים בסיסיים וסיבת מכירה/צורך בשותף.",
+          s2t:"ניתוח עמוק", s2p:"EBITDA, איכות לקוחות, הוצאות, תהליכים וסיכונים.",
+          s3t:"תכנית השבחה", s3p:"תכנית 90–180 יום: צעדים קצרים + מסלול צמיחה ארוך.",
+          s4t:"ביצוע ויציאה", s4p:"ביצוע ממושמע והכנת יציאה: מכירה אסטרטגית/קרן גדולה יותר."
+        },
+        contact:{
+          eyebrow:"Contact",
+          title:"צור קשר",
+          text:"אם יש לך חברה תפעולית למכירה או שותפות השקעה — שלח פרטים ונחזור במהירות ובמקצועיות.",
+          emailLabel:"אימייל",
+          identityLabel:"זהות",
+          noteLabel:"הערה",
+          noteText:"החברות שאנו מכוונים להשקעה בהן משתנות בהתאם למצב השוק."
+        },
+        form:{
+          name:"שם מלא",
+          email:"אימייל",
+          subject:"נושא (עסקה / שותפות / שאלה)",
+          message:"כתוב כאן פרטים...",
+          send:"שלח",
+          alert:"קיבלנו את ההודעה ✅"
+        },
+        footer:{
+          fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
+          signature:"עאסלה עודאי | מייסד ומנכ״ל OZA APEX"
+        }
+      },
+
+      en: {
+        brand:{tagline:"Private Equity • Value Creation"},
+        drawer:{close:"Close"},
+        nav:{about:"About", strategy:"Strategy", criteria:"Criteria", process:"Process", contact:"Contact", cta:"Contact Now"},
+        hero:{
+          badge:"Strong presence • Disciplined execution • Data-driven decisions",
+          title:`Building real value through <span class="gold">acquisition & improvement</span>`,
+          lead:"OZA APEX is a private equity firm focused on operational B2B businesses. We source real opportunities, improve performance, and build long-term growth — with discipline and precision.",
+          primary:"Book a short call",
+          secondary:"View our criteria",
+          note:"* One principle: we win when our partners win first."
+        },
+        stats:{s1:"Focus on operating businesses", s2:"Investment horizon (years)", s3:"EBITDA & management improvement"},
+        about:{
+          eyebrow:"About",
+          title:"About Us",
+          text:"Real investing isn’t noise — it’s discipline and execution. We create value through active management, operational improvement, and practical growth.",
+          pill1:"Fund mindset", pill2:"Operations first", pill3:"Long-term partnership",
+          c1t:"Disciplined decisions", c1p:"Focus on fundamentals: cash flow, margins, customer quality, and improvement levers.",
+          c2t:"Practical improvement", c2p:"Improve from within: processes, pricing, sales, and expense control.",
+          c3t:"Trust & presence", c3p:"Built on transparency, seriousness, and partner-first thinking."
+        },
+        strategy:{
+          eyebrow:"Strategy",
+          title:"Our Strategy",
+          text:"We focus on profitable B2B businesses that need stronger management and operational improvement. Success comes from daily execution — not promises.",
+          c1t:"Smart acquisition", c1p:"We target businesses with strong customers and fixable operational weaknesses.",
+          c2t:"Value creation", c2p:"Improve EBITDA through: cost discipline, pricing, longer contracts, and stronger management systems."
+        },
+        criteria:{
+          eyebrow:"Criteria",
+          title:"Investment Criteria",
+          text:"Criteria help us separate real opportunities from pretty slides.",
+          p1:"Sector", p2:"Numbers", p3:"Improvement",
+          c1t:"Operational B2B", c1p:"Industrial services, maintenance, distribution, logistics, outsourcing — stable demand businesses.",
+          c2t:"Clear profitability", c2p:"Existing EBITDA, understandable cash flow, and margin expansion potential through defined levers.",
+          c3t:"Growth lever", c3p:"Fixable management/ops gaps: pricing, processes, team, or tracking systems."
+        },
+        process:{
+          eyebrow:"Process",
+          title:"How We Work",
+          text:"A simple, clear path — builds trust and reduces mistakes.",
+          s1t:"Initial screen", s1p:"Understand the sector, key numbers, and why there’s a sale/need for a partner.",
+          s2t:"Deep analysis", s2p:"EBITDA, customer quality, expenses, operations, and key risks.",
+          s3t:"Improvement plan", s3p:"90–180 day plan: short actions + long growth path.",
+          s4t:"Execute & exit", s4p:"Disciplined execution and exit preparation: strategic sale / larger fund."
+        },
+        contact:{
+          eyebrow:"Contact",
+          title:"Contact",
+          text:"If you have an operating business for sale or an investment partnership — send details and we’ll respond quickly and professionally.",
+          emailLabel:"Email",
+          identityLabel:"Identity",
+          noteLabel:"Note",
+          noteText:"The companies we target for investment change according to market conditions."
+        },
+        form:{
+          name:"Full name",
+          email:"Email",
+          subject:"Subject (Deal / Partnership / Inquiry)",
+          message:"Write details here...",
+          send:"Send",
+          alert:"Message received ✅"
+        },
+        footer:{
+          fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
+          signature:"Asli Odai | Founder & CEO, OZA APEX"
+        }
+      }
+    };
+
+    let currentLang = 'ar';
+
+    function get(obj, path){
+      return path.split('.').reduce((o,k)=> (o ? o[k] : undefined), obj);
+    }
+
+    function updateActiveLangButtons(lang){
+      document.querySelectorAll('[data-lang]').forEach(b=>{
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+    }
+
+    function setLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
+
+      // Save language
+      localStorage.setItem('oza_lang', lang);
+      updateActiveLangButtons(lang);
+
+      // Text content
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        const val = get(i18n[lang], key);
+        if(val !== undefined) el.textContent = val;
+      });
+
+      // HTML content
+      document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+        const key = el.getAttribute('data-i18n-html');
+        const val = get(i18n[lang], key);
+        if(val !== undefined) el.innerHTML = val;
+      });
+
+      // Placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = get(i18n[lang], key);
+        if(val !== undefined) el.setAttribute('placeholder', val);
+      });
+
+      // Keep footer year span correct after innerHTML changes
+      const yearEl = document.getElementById('year');
+      if(yearEl) yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Load saved language
+    setLang(localStorage.getItem('oza_lang') || 'ar');
+  </script>
+</body>
+</html>
