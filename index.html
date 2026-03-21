@@ -700,11 +700,18 @@
       <div class="contact-wrap">
         <div class="card reveal">
           <div class="pill">Message</div>
-          <form class="form" onsubmit="event.preventDefault(); alert(i18n[currentLang].form.alert);">
-            <input class="input" type="text" placeholder="الاسم الكامل" data-i18n-placeholder="form.name" required />
-            <input class="input" type="email" placeholder="الإيميل" data-i18n-placeholder="form.email" required />
-            <input class="input" type="text" placeholder="موضوع الرسالة (صفقة / شراكة / استفسار)" data-i18n-placeholder="form.subject" />
-            <textarea class="input" placeholder="اكتب التفاصيل هنا..." data-i18n-placeholder="form.message" required></textarea>
+
+          <form class="form" action="https://formsubmit.co/odaiozaapex@outlook.com" method="POST">
+            <input class="input" type="text" name="name" placeholder="الاسم الكامل" data-i18n-placeholder="form.name" required />
+            <input class="input" type="email" name="email" placeholder="الإيميل" data-i18n-placeholder="form.email" required />
+            <input class="input" type="text" name="subject" placeholder="موضوع الرسالة (صفقة / شراكة / استفسار)" data-i18n-placeholder="form.subject" />
+            <textarea class="input" name="message" placeholder="اكتب التفاصيل هنا..." data-i18n-placeholder="form.message" required></textarea>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New OZA APEX Website Lead">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/?sent=true">
+
             <button class="btn btn-primary" type="submit" data-i18n="form.send">إرسال</button>
           </form>
         </div>
@@ -841,8 +848,7 @@
           email:"الإيميل",
           subject:"موضوع الرسالة (صفقة / شراكة / استفسار)",
           message:"اكتب التفاصيل هنا...",
-          send:"إرسال",
-          alert:"تم استلام رسالتك ✅"
+          send:"إرسال"
         },
         footer:{
           fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
@@ -910,8 +916,7 @@
           email:"אימייל",
           subject:"נושא (עסקה / שותפות / שאלה)",
           message:"כתוב כאן פרטים...",
-          send:"שלח",
-          alert:"קיבלנו את ההודעה ✅"
+          send:"שלח"
         },
         footer:{
           fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
@@ -979,8 +984,7 @@
           email:"Email",
           subject:"Subject (Deal / Partnership / Inquiry)",
           message:"Write details here...",
-          send:"Send",
-          alert:"Message received ✅"
+          send:"Send"
         },
         footer:{
           fineprint:`עיצוב עתיד ההשקעות • Designed for trust, discipline & execution.<br/>© <span id="year"></span> OZA APEX. All rights reserved.`,
