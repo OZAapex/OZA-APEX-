@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Private equity focused on operational B2B businesses, value creation, and disciplined execution.">
   <meta name="twitter:image" content="https://ozaapex.github.io/OZA-APEX-/finallogorectangle.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="finallogosquare.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="finallogosquare.png">
-  <link rel="apple-touch-icon" href="finallogosquare.png">
-  <link rel="shortcut icon" href="finallogosquare.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="finallogosquareoza.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="finallogosquareoza.png">
+  <link rel="apple-touch-icon" href="finallogosquareoza.png">
+  <link rel="shortcut icon" href="finallogosquareoza.png">
 
   <style>
     :root{
@@ -128,7 +128,7 @@
 
     .intro-ring{
       position:absolute;
-      width:min(420px,78vw);
+      width:min(460px,82vw);
       aspect-ratio:1/1;
       border-radius:50%;
       border:1px solid rgba(212,175,55,0.18);
@@ -155,8 +155,8 @@
 
     .intro-logo-wrap{
       position:relative;
-      width:min(220px,48vw);
-      height:min(220px,48vw);
+      width:min(520px,82vw);
+      min-height:160px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -169,11 +169,12 @@
       opacity:0;
       animation: logoIn 1.2s cubic-bezier(.22,.9,.19,1) forwards .15s;
       backdrop-filter: blur(8px);
+      padding: 24px 28px;
     }
 
     .intro-logo{
-      width:100%;
-      max-width:190px;
+      width:min(360px,70vw);
+      height:auto;
       object-fit:contain;
       filter:
         drop-shadow(0 0 20px rgba(212,175,55,0.10))
@@ -260,13 +261,14 @@
       min-width: 220px;
     }
     .brand img{
-      width:56px;
-      height:56px;
+      width:138px;
+      height:auto;
       object-fit:contain;
       border-radius:12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.10);
       background: transparent;
+      padding:4px 6px;
     }
     .brand-title{
       display:flex;
@@ -692,6 +694,7 @@
     @media (max-width: 520px){
       .steps{grid-template-columns: 1fr}
       .nav-inner{padding:12px 0}
+      .brand img{width:112px}
       .brand-title small{display:none}
       .hero{padding:44px 0 26px}
       .hero-card{padding:18px}
@@ -699,6 +702,8 @@
       .hero-logo img{width:min(280px,78vw)}
       .intro-title{letter-spacing:5px}
       .intro-sub{letter-spacing:2px}
+      .intro-logo{width:min(280px,72vw)}
+      .intro-logo-wrap{min-height:130px}
     }
 
     .drawer{
@@ -747,7 +752,7 @@
     <div class="intro-center">
       <div class="intro-ring"></div>
       <div class="intro-logo-wrap">
-        <img class="intro-logo" src="finallogosquare.png" alt="OZA APEX Logo Intro">
+        <img class="intro-logo" src="finallogorectangle.png" alt="OZA APEX Logo Intro">
       </div>
       <div class="intro-title">OZA APEX</div>
       <div class="intro-sub">Private Equity • Value Creation</div>
@@ -759,7 +764,7 @@
       <div class="container">
         <div class="nav-inner">
           <a class="brand" href="#top">
-            <img src="finallogosquare.png" alt="OZA APEX">
+            <img src="finallogorectangle.png" alt="OZA APEX">
             <div class="brand-title">
               <b>OZA APEX</b>
               <small data-i18n="brand.tagline">Private Equity • Value Creation</small>
@@ -811,7 +816,7 @@
       <div class="container">
 
         <div class="hero-logo reveal">
-          <img src="finallogosquare.png" alt="OZA APEX">
+          <img src="finallogosquareoza.png" alt="OZA APEX">
         </div>
 
         <div class="hero-grid">
@@ -1177,7 +1182,7 @@
           title:"האסטרטגיה שלנו",
           text:"אנו מתמקדים בחברות B2B תפעוליות רווחיות הזקוקות לניהול חזק יותר ושיפור תפעולי. ההצלחה מגיעה מביצוע יומיומי.",
           c1t:"רכישה חכמה", c1p:"אנו מכוונים לעסקים עם בסיס לקוחות חזק וחולשות תפעוליות שניתן לתקן.",
-          c2t:"יצירת ערך", c2p:"שיפור EBITDA דרך שליטה בהוצאות، תמחור، חוזים ארוכים ומערכות ניהול חזקות."
+          c2t:"יצירת ערך", c2p:"שיפור EBITDA דרך שליטה בהוצאות, תמחור, חוזים ארוכים ומערכות ניהול חזקות."
         },
         criteria:{
           eyebrow:"Criteria",
