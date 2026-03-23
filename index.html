@@ -7,7 +7,6 @@
   <title>OZA APEX | Private Equity</title>
   <meta name="description" content="OZA APEX is a private equity firm focused on operational B2B businesses, value creation, and disciplined execution.">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="OZA APEX | Private Equity">
   <meta property="og:site_name" content="OZA APEX">
   <meta property="og:description" content="Private equity focused on operational B2B businesses, value creation, and disciplined execution.">
@@ -16,17 +15,15 @@
   <meta property="og:image" content="https://ozaapex.github.io/OZA-APEX-/og.png">
   <meta property="og:image:alt" content="OZA APEX preview image">
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="OZA APEX | Private Equity">
   <meta name="twitter:description" content="Private equity focused on operational B2B businesses, value creation, and disciplined execution.">
   <meta name="twitter:image" content="https://ozaapex.github.io/OZA-APEX-/og.png">
 
-  <!-- Icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="og.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="og.png">
-  <link rel="apple-touch-icon" href="og.png">
-  <link rel="shortcut icon" href="og.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
 
   <style>
     :root{
@@ -56,6 +53,40 @@
 
     a{color:inherit; text-decoration:none}
     .container{width:min(1160px, 92vw); margin:0 auto}
+
+    /* Intro */
+    #intro{
+      position:fixed;
+      inset:0;
+      background:var(--navy);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:99999;
+    }
+    #intro img{
+      width:min(280px, 52vw);
+      opacity:0;
+      transform:scale(.86);
+      animation:logoIn 1.4s ease forwards;
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,.28));
+    }
+    @keyframes logoIn{
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+    #intro.hide{
+      animation:fadeOut .8s ease forwards;
+      pointer-events:none;
+    }
+    @keyframes fadeOut{
+      to{
+        opacity:0;
+        visibility:hidden;
+      }
+    }
 
     .nav{
       position:sticky; top:0; z-index:50;
@@ -505,6 +536,10 @@
 
 <body>
 
+  <div id="intro">
+    <img src="logo-navy.png" alt="OZA APEX intro logo">
+  </div>
+
   <header class="nav">
     <div class="container">
       <div class="nav-inner">
@@ -622,7 +657,7 @@
         <div class="card reveal">
           <div class="pill" data-i18n="about.pill1">Fund Mindset</div>
           <h3 data-i18n="about.c1t">Disciplined decisions</h3>
-          <p data-i18n="about.c1p">Focus on fundamentals: cash flow, margins, customer quality, and clear improvement levers.</p>
+          <p data-i18n="about.c1p">Focus on cash flow, margins, customer quality, and clear improvement levers.</p>
         </div>
         <div class="card reveal">
           <div class="pill" data-i18n="about.pill2">Operations First</div>
@@ -1084,11 +1119,14 @@
       }
     }
 
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("intro")?.classList.add("hide");
+      }, 2200);
+    });
+
     setLang(localStorage.getItem('oza_lang') || 'en');
     handleSuccessBanner();
-  </script>
-</body>
-</html>
   </script>
 </body>
 </html>
